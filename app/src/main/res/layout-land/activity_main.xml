@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.mobilecomputing.kha.suggest2u.MainActivity">
+
+    <TextView
+        android:layout_width="1165px"
+        android:layout_height="730px"
+        android:text="New Text"
+        android:layout_marginLeft="700px"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:background="#001aff" />
+
+
+    <TextView
+        android:layout_width="1165px"
+        android:layout_height="420px"
+        android:layout_marginLeft="700px"
+        android:layout_marginTop="730px"
+        android:text="text here"
+        android:id="@+id/write"
+        android:background="#05ff2f" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="815px"
+        android:layout_height="210px"
+        android:layout_marginLeft="875px"
+        android:layout_marginTop="1150px"
+        android:text="Space"
+        android:id="@+id/space" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text=","
+        android:id="@+id/bcomma"
+        android:layout_marginLeft="700px"
+        android:layout_marginTop="1150px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="."
+        android:id="@+id/bdot"
+        android:layout_marginLeft="1690px"
+        android:layout_marginTop="1150px" />
+
+
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="465px"
+        android:layout_height="220px"
+        android:text="Fuck"
+        android:id="@+id/fuck"
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="0px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="235px"
+        android:layout_height="220px"
+        android:text="5th"
+        android:id="@+id/b5th"
+        android:layout_marginLeft="465px" />
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="350px"
+        android:layout_height="300px"
+        android:text="3rd"
+        android:id="@+id/b3rd"
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="220px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="350px"
+        android:layout_height="300px"
+        android:text="1st"
+        android:id="@+id/b1st"
+        android:layout_marginLeft="350px"
+        android:layout_marginTop="220px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="q"
+        android:id="@+id/bq"
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="w"
+        android:id="@+id/bw"
+        android:layout_marginLeft="140px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="e"
+        android:id="@+id/be"
+        android:layout_marginLeft="280px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="r"
+        android:id="@+id/br"
+        android:layout_marginLeft="420px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="t"
+        android:id="@+id/bt"
+        android:layout_marginLeft="560px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="a"
+        android:id="@+id/ba"
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="730px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="s"
+        android:id="@+id/bs"
+        android:layout_marginLeft="175px"
+        android:layout_marginTop="730px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="d"
+        android:id="@+id/bd"
+        android:layout_marginLeft="350px"
+        android:layout_marginTop="730px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="f"
+        android:id="@+id/bf"
+        android:layout_marginLeft="525px"
+        android:layout_marginTop="730px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="z"
+        android:id="@+id/bz"
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="940px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="x"
+        android:id="@+id/bx"
+        android:layout_marginLeft="175px"
+        android:layout_marginTop="940px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="c"
+        android:id="@+id/bc"
+        android:layout_marginLeft="350px"
+        android:layout_marginTop="940px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="v"
+        android:id="@+id/bv"
+        android:layout_marginLeft="525px"
+        android:layout_marginTop="940px" />
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="232.66px"
+        android:layout_height="210px"
+        android:text="shift"
+        android:id="@+id/bshift"
+        android:layout_marginLeft="0px"
+        android:layout_marginTop="1150px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="232.66px"
+        android:layout_height="210px"
+        android:text="sym"
+        android:id="@+id/bsym"
+        android:layout_marginLeft="232.66px"
+        android:layout_marginTop="1150px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="232.66px"
+        android:layout_height="210px"
+        android:text="emoji"
+        android:id="@+id/bemoji"
+        android:layout_marginLeft="465.33px"
+        android:layout_marginTop="1150px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="465px"
+        android:layout_height="220px"
+        android:text="Soren"
+        android:id="@+id/Soren"
+        android:layout_marginLeft="2100px"
+        android:layout_marginTop="0px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="235px"
+        android:layout_height="220px"
+        android:text="6th"
+        android:id="@+id/b6th"
+        android:layout_marginLeft="1865px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="350px"
+        android:layout_height="300px"
+        android:text="2nd"
+        android:id="@+id/b2nd"
+        android:layout_marginLeft="1865px"
+        android:layout_marginTop="220px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="350px"
+        android:layout_height="300px"
+        android:text="4th"
+        android:id="@+id/b4th"
+        android:layout_marginLeft="2215px"
+        android:layout_marginTop="220px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="y"
+        android:id="@+id/by"
+        android:layout_marginLeft="1865px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="u"
+        android:id="@+id/bu"
+        android:layout_marginLeft="2005px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="i"
+        android:id="@+id/bi"
+        android:layout_marginLeft="2145px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="o"
+        android:id="@+id/bo"
+        android:layout_marginLeft="2285px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="140px"
+        android:layout_height="210px"
+        android:text="p"
+        android:id="@+id/bp"
+        android:layout_marginLeft="2425px"
+        android:layout_marginTop="520px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="g"
+        android:id="@+id/bg"
+        android:layout_marginLeft="1865px"
+        android:layout_marginTop="730px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="h"
+        android:id="@+id/bh"
+        android:layout_marginLeft="2040px"
+        android:layout_marginTop="730px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="j"
+        android:id="@+id/bj"
+        android:layout_marginLeft="2215px"
+        android:layout_marginTop="730px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="k"
+        android:id="@+id/bk"
+        android:layout_marginLeft="2390px"
+        android:layout_marginTop="730px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="l"
+        android:id="@+id/bl"
+        android:layout_marginLeft="1865px"
+        android:layout_marginTop="940px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="b"
+        android:id="@+id/bb"
+        android:layout_marginLeft="2040px"
+        android:layout_marginTop="940px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="n"
+        android:id="@+id/bn"
+        android:layout_marginLeft="2215px"
+        android:layout_marginTop="940px" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="175px"
+        android:layout_height="210px"
+        android:text="m"
+        android:id="@+id/bm"
+        android:layout_marginLeft="2390px"
+        android:layout_marginTop="940px" />
+
+
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="465px"
+        android:layout_height="210px"
+        android:text="delete"
+        android:id="@+id/bdel"
+        android:layout_marginLeft="1865px"
+        android:layout_marginTop="1150px" />
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="235px"
+        android:layout_height="210px"
+        android:text="ent"
+        android:id="@+id/bent"
+        android:layout_marginLeft="2330px"
+        android:layout_marginTop="1150px" />
+
+
+</RelativeLayout>
