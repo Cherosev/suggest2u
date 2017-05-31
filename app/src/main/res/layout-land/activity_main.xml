@@ -207,7 +207,9 @@
         android:text="shift"
         android:id="@+id/bshift"
         android:layout_marginLeft="0px"
-        android:layout_marginTop="1150px" />
+        android:layout_marginTop="1150px"
+        android:textColor="#ffffff"
+        android:background="#ff5a595b" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -235,7 +237,7 @@
         android:id="@+id/soren"
         android:layout_marginLeft="1865px"
         android:layout_marginTop="0px"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="false" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

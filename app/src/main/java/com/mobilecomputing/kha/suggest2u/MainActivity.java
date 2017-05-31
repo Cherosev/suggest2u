@@ -1,18 +1,25 @@
 package com.mobilecomputing.kha.suggest2u;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.graphics.drawable.ColorDrawable;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+
         setContentView(R.layout.activity_main);
 
+;
         final TextView textBox = (TextView) findViewById(R.id.write);
         final TextView chatBox = (TextView) findViewById(R.id.chat);
         Button del = (Button) findViewById(R.id.bdel);
@@ -20,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Button enter = (Button) findViewById(R.id.bent);
         Button fuck = (Button) findViewById(R.id.fuck);
         Button soren = (Button) findViewById(R.id.soren);
+        final Button shift = (Button) findViewById(R.id.bshift);
         Button a = (Button) findViewById(R.id.ba);
         Button b = (Button) findViewById(R.id.bb);
         Button c = (Button) findViewById(R.id.bc);
@@ -42,9 +50,35 @@ public class MainActivity extends AppCompatActivity {
         Button t = (Button) findViewById(R.id.bt);
         Button u = (Button) findViewById(R.id.bu);
         Button v = (Button) findViewById(R.id.bv);
+        Button w = (Button) findViewById(R.id.bw);
         Button x = (Button) findViewById(R.id.bx);
         Button y = (Button) findViewById(R.id.by);
         Button z = (Button) findViewById(R.id.bz);
+
+        shift.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                int shiftColor = shift.getCurrentTextColor();
+                //Hvid = #FFFFFFFF
+                //Bla = #FF0015FF
+                //Sort = #FF000000
+                textBox.setText(Integer.toString(shiftColor));
+                /*
+                if (shiftColor == Color.parseColor("#FFFFFFFF")) {
+                    shift.setTextColor(Color.parseColor("FF0015FF"));
+                    shift.setBackgroundColor(Color.parseColor("#FF000000"));
+                }
+                else if (shiftColor == Color.parseColor("#FF0015FF")) {
+                    shift.setTextColor(Color.parseColor("#FFFFFFFF"));
+                    shift.setBackgroundColor(Color.parseColor("#FF0015FF"));
+                }
+                */
+
+
+            }
+        });
+
 
         enter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -247,6 +281,13 @@ public class MainActivity extends AppCompatActivity {
                 // Perform action on click
                 String x = (String) textBox.getText();
                 textBox.setText((x.concat("v")));
+            }
+        });
+        w.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                String x = (String) textBox.getText();
+                textBox.setText((x.concat("w")));
             }
         });
         x.setOnClickListener(new View.OnClickListener() {
