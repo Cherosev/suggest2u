@@ -1,14 +1,170 @@
 package com.mobilecomputing.kha.suggest2u;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.graphics.drawable.ColorDrawable;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 
 public class MainActivity extends AppCompatActivity {
+    ImageView enter;
+    TextView textBox;
+    TextView chatBox;
+    List<butt> buttonList = new ArrayList<>();
+    List<Button> ButtonList = new ArrayList<>();
+    private Button del;
+    private Button space;
+    //Button first = (Button) findViewById(R.id.b1st);
+    //Button second = (Button) findViewById(R.id.b2nd);
+    //Button third = (Button) findViewById(R.id.b3rd);
+    //Button fourth = (Button) findViewById(R.id.b4th);
+    private Button shift;
+    private int resFile = 0;
+    private Button symbol;
+    boolean symBool = Boolean.FALSE;
+    int shiftVal;
+    private butt a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,comma;
+    private Button bba,bbb,bbc,bbd,bbe,bbf,bbg,bbh,bbi,bbj,bbk,bbl,bbm,bbn,bbo,bbp,bbq,bbr,bbs,bbt,bbu,bbv,bbx,bby,bbz,bbw,bbcomma;
+    private void init() {
+
+        shiftVal = 1;
+
+        a = new butt("a","-");
+        b = new butt("b","!");
+        c = new butt("c","...");
+        d = new butt("d",":");
+        e = new butt("e","3");
+        f = new butt("f",";");
+        g = new butt("g","(");
+        h = new butt("h",")");
+        i = new butt("i","8");
+        j = new butt("j","#");
+        k = new butt("k","$");
+        l = new butt("l","@");
+        m = new butt("m","'");
+        n = new butt("n","\"");
+        o = new butt("o","9");
+        p = new butt("p","0");
+        q = new butt("q","1");
+        r = new butt("r","4");
+        s = new butt("s","/");
+        t = new butt("t","5");
+        u = new butt("u","7");
+        v = new butt("v","?");
+        w = new butt("w","2");
+        x = new butt("x",",");
+        y = new butt("y","6");
+        z = new butt("z",".");
+        buttonList.add(a);
+        buttonList.add(b);
+        buttonList.add(c);
+        buttonList.add(d);
+        buttonList.add(e);
+        buttonList.add(f);
+        buttonList.add(g);
+        buttonList.add(h);
+        buttonList.add(i);
+        buttonList.add(j);
+        buttonList.add(k);
+        buttonList.add(l);
+        buttonList.add(m);
+        buttonList.add(n);
+        buttonList.add(o);
+        buttonList.add(p);
+        buttonList.add(q);
+        buttonList.add(r);
+        buttonList.add(s);
+        buttonList.add(t);
+        buttonList.add(u);
+        buttonList.add(v);
+        buttonList.add(w);
+        buttonList.add(x);
+        buttonList.add(y);
+        buttonList.add(z);
+        ButtonList.add(bba);
+        ButtonList.add(bbb);
+        ButtonList.add(bbc);
+        ButtonList.add(bbd);
+        ButtonList.add(bbe);
+        ButtonList.add(bbf);
+        ButtonList.add(bbg);
+        ButtonList.add(bbh);
+        ButtonList.add(bbi);
+        ButtonList.add(bbj);
+        ButtonList.add(bbk);
+        ButtonList.add(bbl);
+        ButtonList.add(bbm);
+        ButtonList.add(bbn);
+        ButtonList.add(bbo);
+        ButtonList.add(bbp);
+        ButtonList.add(bbq);
+        ButtonList.add(bbr);
+        ButtonList.add(bbs);
+        ButtonList.add(bbt);
+        ButtonList.add(bbu);
+        ButtonList.add(bbv);
+        ButtonList.add(bbw);
+        ButtonList.add(bbx);
+        ButtonList.add(bby);
+        ButtonList.add(bbz);
+        toUpper();
+
+    }
+    public void press(butt bb,Button baa){
+        String x = (String) textBox.getText();
+        textBox.setText((x.concat((String) baa.getText())));
+        if (shiftVal == 1){
+            shiftVal = 0;
+            toUpper();
+        }
+    }
+    public void toSym() {
+        for (int ii = 0; ii < buttonList.size(); ii++) {
+            ButtonList.get(ii).setText(buttonList.get(ii).getSym(symBool));
+        }
+    }
+    public void toUpper(){
+
+        for (int ii = 0; ii < buttonList.size(); ii++) {
+            if (shiftVal == 0){
+                ButtonList.get(ii).setText(buttonList.get(ii).getCur().toLowerCase());
+            }
+            if (shiftVal == 1){
+                ButtonList.get(ii).setText(buttonList.get(ii).getCur().toUpperCase());
+            }
+
+            if (shiftVal == 0){
+                // grey = #ff616161
+                // white = #ffffff
+                // blue = #0000FF
+                shift.setBackgroundColor(Color.parseColor("#ff616161"));
+                shift.setTextColor(Color.parseColor("#ffffff"));
+            }
+            else if (shiftVal == 1){
+                shift.setBackgroundColor(Color.parseColor("#ff616161"));
+                shift.setTextColor(Color.parseColor("#0000ff"));
+            }
+            else {
+                shift.setBackgroundColor(Color.parseColor("#0000ff"));
+                shift.setTextColor(Color.parseColor("#ff616161"));
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,75 +175,105 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-;
-        final TextView textBox = (TextView) findViewById(R.id.write);
-        final TextView chatBox = (TextView) findViewById(R.id.chat);
-        Button del = (Button) findViewById(R.id.bdel);
-        Button space = (Button) findViewById(R.id.bspace);
-        Button enter = (Button) findViewById(R.id.bent);
-        Button fuck = (Button) findViewById(R.id.fuck);
-        Button soren = (Button) findViewById(R.id.soren);
-        final Button shift = (Button) findViewById(R.id.bshift);
-        Button a = (Button) findViewById(R.id.ba);
-        Button b = (Button) findViewById(R.id.bb);
-        Button c = (Button) findViewById(R.id.bc);
-        Button d = (Button) findViewById(R.id.bd);
-        Button e = (Button) findViewById(R.id.be);
-        Button f = (Button) findViewById(R.id.bf);
-        Button g = (Button) findViewById(R.id.bg);
-        Button h = (Button) findViewById(R.id.bh);
-        Button i = (Button) findViewById(R.id.bi);
-        Button j = (Button) findViewById(R.id.bj);
-        Button k = (Button) findViewById(R.id.bk);
-        Button l = (Button) findViewById(R.id.bl);
-        Button m = (Button) findViewById(R.id.bm);
-        Button n = (Button) findViewById(R.id.bn);
-        Button o = (Button) findViewById(R.id.bo);
-        Button p = (Button) findViewById(R.id.bp);
-        Button q = (Button) findViewById(R.id.bq);
-        Button r = (Button) findViewById(R.id.br);
-        Button s = (Button) findViewById(R.id.bs);
-        Button t = (Button) findViewById(R.id.bt);
-        Button u = (Button) findViewById(R.id.bu);
-        Button v = (Button) findViewById(R.id.bv);
-        Button w = (Button) findViewById(R.id.bw);
-        Button x = (Button) findViewById(R.id.bx);
-        Button y = (Button) findViewById(R.id.by);
-        Button z = (Button) findViewById(R.id.bz);
+        enter = (ImageView) findViewById(R.id.bent);
+        textBox = (TextView) findViewById(R.id.write);
+        chatBox = (TextView) findViewById(R.id.chat);
 
+        bba = (Button) findViewById(R.id.ba);
+        bbb = (Button) findViewById(R.id.bb);
+        bbc = (Button) findViewById(R.id.bc);
+        bbd = (Button) findViewById(R.id.bd);
+        bbe = (Button) findViewById(R.id.be);
+        bbf = (Button) findViewById(R.id.bf);
+        bbg = (Button) findViewById(R.id.bg);
+        bbh = (Button) findViewById(R.id.bh);
+        bbi = (Button) findViewById(R.id.bi);
+        bbj = (Button) findViewById(R.id.bj);
+        bbk = (Button) findViewById(R.id.bk);
+        bbl = (Button) findViewById(R.id.bl);
+        bbm = (Button) findViewById(R.id.bm);
+        bbn = (Button) findViewById(R.id.bn);
+        bbo = (Button) findViewById(R.id.bo);
+        bbp = (Button) findViewById(R.id.bp);
+        bbq = (Button) findViewById(R.id.bq);
+        bbr = (Button) findViewById(R.id.br);
+        bbs = (Button) findViewById(R.id.bs);
+        bbt = (Button) findViewById(R.id.bt);
+        bbu = (Button) findViewById(R.id.bu);
+        bbv = (Button) findViewById(R.id.bv);
+        bbw = (Button) findViewById(R.id.bw);
+        bbx = (Button) findViewById(R.id.bx);
+        bby = (Button) findViewById(R.id.by);
+        bbz = (Button) findViewById(R.id.bz);
+        bbcomma = (Button) findViewById(R.id.bcomma);
+        del = (Button) findViewById(R.id.bdel);
+        space = (Button) findViewById(R.id.bspace);
+        symbol = (Button) findViewById(R.id.bsym);
+        //Button first = (Button) findViewById(R.id.b1st);
+        //Button second = (Button) findViewById(R.id.b2nd);
+        //Button third = (Button) findViewById(R.id.b3rd);
+        //Button fourth = (Button) findViewById(R.id.b4th);
+        shift = (Button) findViewById(R.id.bshift);
+        //textBox.setMovementMethod(new ScrollingMovementMethod());
+        //chatBox.setMovementMethod(new ScrollingMovementMethod());
+
+        init();
+
+        symbol.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                symBool = !symBool;
+                toSym();
+                if (symBool == Boolean.FALSE){
+                    shiftVal = 0;
+                    toUpper();
+                }
+            }
+        });
         shift.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-
-                int shiftColor = shift.getCurrentTextColor();
-                //Hvid = #FFFFFFFF
-                //Bla = #FF0015FF
-                //Sort = #FF000000
-                textBox.setText(Integer.toString(shiftColor));
-                /*
-                if (shiftColor == Color.parseColor("#FFFFFFFF")) {
-                    shift.setTextColor(Color.parseColor("FF0015FF"));
-                    shift.setBackgroundColor(Color.parseColor("#FF000000"));
+                if (symBool){
+                    return;
                 }
-                else if (shiftColor == Color.parseColor("#FF0015FF")) {
-                    shift.setTextColor(Color.parseColor("#FFFFFFFF"));
-                    shift.setBackgroundColor(Color.parseColor("#FF0015FF"));
+                shiftVal = shiftVal + 1;
+                if (shiftVal == 3){
+                    shiftVal =0;
                 }
-                */
-
-
+                toUpper();
             }
         });
-
 
         enter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
                 String text = (String) textBox.getText();
                 String chat = (String) chatBox.getText();
+                //String test1 = "$test1";
+                //String test2 = "$test2";
+                shiftVal = 1;
+                String end   = "$reset";
+                /*
+                if (chat.toLowerCase().contains(test1.toLowerCase())){
+                    resFile = 1;
+                }
+                if (chat.toLowerCase().contains(test2.toLowerCase())){
+                    resFile = 2;
+                }
+
+                if (resFile!=0){
+                    writeToFile(chat,getBaseContext(),resFile);
+                }
+                */
                 if (text != null && text.length() > 0) {
                     textBox.setText("");
                     chatBox.setText(chat.concat(text.concat("\n")));
+                }
+
+                if (chat.toLowerCase().contains(end.toLowerCase())){
+                    textBox.setText("");
+                    chatBox.setText("");
+
                 }
             }
         });
@@ -111,210 +297,179 @@ public class MainActivity extends AppCompatActivity {
                 textBox.setText((x.concat(" ")));
             }
         });
-
-        a.setOnClickListener(new View.OnClickListener() {
+        bbcomma.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
                 String x = (String) textBox.getText();
-                textBox.setText((x.concat("a")));
+                textBox.setText((x.concat(", ")));
+            }
+        });
+        bba.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                press(a,bba);
             }
         });
 
-        soren.setOnClickListener(new View.OnClickListener() {
+        bbb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("Soren ")));
+                press(b,bbb);
             }
         });
-        fuck.setOnClickListener(new View.OnClickListener() {
+        bbc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("fuck ")));
+                press(c,bbc);
             }
         });
-        b.setOnClickListener(new View.OnClickListener() {
+        bbd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("b")));
+                press(d,bbd);
             }
         });
-        c.setOnClickListener(new View.OnClickListener() {
+        bbe.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("c")));
+                press(e,bbe);
             }
         });
-        d.setOnClickListener(new View.OnClickListener() {
+        bbf.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("d")));
+                press(f,bbf);
             }
         });
-        e.setOnClickListener(new View.OnClickListener() {
+        bbg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("e")));
+                press(g,bbg);
             }
         });
-        f.setOnClickListener(new View.OnClickListener() {
+        bbh.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("f")));
+                press(h,bbh);
             }
         });
-        g.setOnClickListener(new View.OnClickListener() {
+        bbi.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("g")));
+                press(i,bbi);
             }
         });
-        h.setOnClickListener(new View.OnClickListener() {
+        bbj.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("h")));
+                press(j,bbj);
             }
         });
-        i.setOnClickListener(new View.OnClickListener() {
+        bbk.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("i")));
+                press(k,bbk);
             }
         });
-        j.setOnClickListener(new View.OnClickListener() {
+        bbl.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("j")));
+                press(l,bbl);
             }
         });
-        k.setOnClickListener(new View.OnClickListener() {
+        bbm.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("k")));
+                press(m,bbm);
             }
         });
-        l.setOnClickListener(new View.OnClickListener() {
+        bbn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("l")));
+                press(n,bbn);
             }
         });
-        m.setOnClickListener(new View.OnClickListener() {
+        bbo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("m")));
-            }
-        });
-        n.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("n")));
-            }
-        });
-        o.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("o")));
+                press(o,bbo);
             }
         });
 
-        p.setOnClickListener(new View.OnClickListener() {
+        bbp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("p")));
+                press(p,bbp);
             }
         });
 
-        q.setOnClickListener(new View.OnClickListener() {
+        bbq.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("q")));
+                press(q,bbq);
             }
         });
-        r.setOnClickListener(new View.OnClickListener() {
+        bbr.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("r")));
+                press(r,bbr);
             }
         });
-        s.setOnClickListener(new View.OnClickListener() {
+        bbs.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("s")));
+                press(s,bbs);
             }
         });
-        t.setOnClickListener(new View.OnClickListener() {
+        bbt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("t")));
+                press(t,bbt);
             }
         });
-        u.setOnClickListener(new View.OnClickListener() {
+        bbu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("u")));
+                press(u,bbu);
             }
         });
-        v.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        bbv.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View y) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("v")));
+                press(v,bbv);
             }
         });
-        w.setOnClickListener(new View.OnClickListener() {
+        bbw.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("w")));
+                press(w,bbw);
             }
         });
-        x.setOnClickListener(new View.OnClickListener() {
+        bbx.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("x")));
+                press(x,bbx);
             }
         });
 
-        y.setOnClickListener(new View.OnClickListener() {
+        bby.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("y")));
+                press(y,bby);
             }
         });
-        z.setOnClickListener(new View.OnClickListener() {
+        bbz.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                String x = (String) textBox.getText();
-                textBox.setText((x.concat("z")));
+                press(z,bbz);
             }
         });
+
 
 
 
     }
-
 }
+
+
+
